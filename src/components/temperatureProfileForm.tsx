@@ -218,7 +218,7 @@ export const TemperatureProfileForm: React.FC = () => {
             control={control}
             render={({ field }) => (
               <TimezoneSelect
-                value={field.value}
+                value={field.value.value}
                 onChange={field.onChange}
                 timezones={{
                   ...allTimezones,
