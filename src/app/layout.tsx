@@ -13,9 +13,15 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "8 App",
-  description: "8 App",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  title: "Eight Sleep Control",
+  description: "Control your Eight Sleep bed and temperature schedule.",
+  applicationName: "Eight Sleep Control",
+  manifest: "/manifest.webmanifest",
+  themeColor: "#0b1220",
+  icons: {
+    icon: [{ url: "/favicon.ico" }, { url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
