@@ -96,8 +96,12 @@ export const TemperatureProfileForm: React.FC = () => {
         setSleepInfo({ duration: "", midStageTime: "", finalStageTime: "" });
       } else {
         setSleepDurationError(null);
-        const midStageDate = new Date(wakeDate.getTime() - 2 * 60 * 60 * 1000); // 2 hours before wakeup
-        const finalStageDate = new Date(wakeDate.getTime() - 60 * 60 * 1000); // 1 hour before wakeup
+        const midStageDate = new Date(bedDate);
+        const finalStageDate = new Date(bedDate);
+        midStageDate.setHours(2, 0, 0, 0);
+        finalStageDate.setHours(3, 0, 0, 0);
+        if (midStageDate <= bedDate) midStageDate.setDate(midStageDate.getDate() + 1);
+        if (finalStageDate <= bedDate) finalStageDate.setDate(finalStageDate.getDate() + 1);
 
         setSleepInfo({
           duration: `${hours} hours ${minutes} minutes`,
