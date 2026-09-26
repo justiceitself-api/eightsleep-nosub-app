@@ -99,7 +99,7 @@ export const TemperatureProfileForm: React.FC = () => {
         const midStageDate = new Date(bedDate);
         const finalStageDate = new Date(bedDate);
         midStageDate.setHours(2, 0, 0, 0);
-        finalStageDate.setHours(3, 0, 0, 0);
+        finalStageDate.setHours(6, 0, 0, 0);
         if (midStageDate <= bedDate) midStageDate.setDate(midStageDate.getDate() + 1);
         if (finalStageDate <= bedDate) finalStageDate.setDate(finalStageDate.getDate() + 1);
 
