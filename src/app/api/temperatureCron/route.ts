@@ -62,8 +62,10 @@ function createSleepCycle(baseDate: Date, bedTimeStr: string, wakeupTimeStr: str
     wakeupTime = addDays(wakeupTime, 1);
   }
   
-  const midStageTime = new Date(wakeupTime.getTime() - 2 * 60 * 60 * 1000);
-  const finalStageTime = new Date(wakeupTime.getTime() - 60 * 60 * 1000);
+  let midStageTime = createDateWithTime(baseDate, "02:00");
+  let finalStageTime = createDateWithTime(baseDate, "03:00");
+  if (midStageTime <= bedTime) midStageTime = addDays(midStageTime, 1);
+  if (finalStageTime <= bedTime) finalStageTime = addDays(finalStageTime, 1);
   
   return { preHeatingTime, bedTime, midStageTime, finalStageTime, wakeupTime };
 }
